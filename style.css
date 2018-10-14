@@ -1,0 +1,25 @@
+/******************************************************************
+Theme Name: blank
+Theme URI: https://www.BenRothman.org
+Description: A Wordpress starter theme built with Bootstrap and and other common building blocks. This theme has a few pre-installed libraries for developers.
+Author: Ben Rothman
+Author URI: https://www.BenRothman.org
+Version: 1.0
+Tags: starter theme, blank, customizable, developers, bootstrap, fontawesome, fitvid, redux
+
+License: WTFPL
+License URI: http://sam.zoy.org/wtfpl/
+
+------------------------------------------------------------------
+
+Wtf? Where is the css code?  Calm down it's in library/css/style.css.  That is organized.  I know some developers use this stylesheet to house their css, or they make mytheme/css and mytheme/js to store their css and js code
+respectively, but I think that is less organized and one of the things I tried to do in this theme was organize everything and give things obvious and intuitive names so that those things could easily be edited. (btw, I recommend using
+/library/js to store javascript and jquery files)
+
+Aside from this theme being organized and named to allow for easy editing, external libraries that you WOULD have to install are already installed which will save you time.  I'll add more pre-installed libraries in the future.
+
+Enjoy easily making custom sites using this starter theme and changing it to fit your needs.  This theme was made to be customized and does many of the first-step customizations that you would have had to do.
+
+Yes, you are welcome.  No one wants to do those repetitive boring customization tasks that you have to do to every project in the beginning so this theme lets you skip those.
+
+******************************************************************/
