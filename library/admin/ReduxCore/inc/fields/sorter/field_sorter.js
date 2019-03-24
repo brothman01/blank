@@ -1,4 +1,4 @@
-/* global redux, redux_opts */
+/* global redux_change, redux_opts */
 /*
  * Field Sorter jquery function
  * Based on
@@ -8,13 +8,13 @@
 
 jQuery(function() {
     /**	Sorter (Layout Manager) */
-    jQuery('.redux-sorter').each(function() {
+    jQuery('.sorter').each(function() {
         var id = jQuery(this).attr('id');
         jQuery('#' + id).find('ul').sortable({
             items: 'li',
             placeholder: "placeholder",
             connectWith: '.sortlist_' + id,
-            opacity: 0.8,
+            opacity: 0.6,
             update: function() {
                 jQuery(this).find('.position').each(function() {
                     var listID = jQuery(this).parent().attr('id');
@@ -22,7 +22,7 @@ jQuery(function() {
                     parentID = parentID.replace(id + '_', '');
                     redux_change(jQuery(this));
                     var optionID = jQuery(this).parent().parent().parent().attr('id');
-                    jQuery(this).prop("name", redux.args.opt_name + '[' + optionID + '][' + parentID + '][' + listID + ']');
+                    jQuery(this).prop("name", redux_opts.opt_name + '[' + optionID + '][' + parentID + '][' + listID + ']');
                 });
             }
         });

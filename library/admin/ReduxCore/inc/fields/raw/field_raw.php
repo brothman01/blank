@@ -1,5 +1,5 @@
 <?php
-class ReduxFramework_raw extends ReduxFramework {
+class ReduxFramework_raw {
 
     /**
      * Field Constructor.
@@ -8,13 +8,10 @@ class ReduxFramework_raw extends ReduxFramework {
      *
      * @since ReduxFramework 3.0.4
     */
-    function __construct( $field = array(), $value ='', $parent ) {
-    
-        //parent::__construct( $parent->sections, $parent->args );
-        $this->parent = $parent;
+    function __construct($field = array(), $value ='', $parent) {
         $this->field = $field;
-        $this->value = $value;
-    
+		$this->value = $value;
+		$this->args = $parent->args;
     }
 
     /**

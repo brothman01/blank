@@ -1,9 +1,8 @@
-/* global redux_change */
+/* global redux_change, reduxSpinners */
 jQuery(document).ready(function() {
-
     jQuery('.redux_spinner').each(function() {
         //slider init
-        var spinner = redux.spinner[jQuery(this).attr('rel')];
+        var spinner = reduxSpinners[jQuery(this).attr('rel')];
 
         jQuery("#" + spinner.id).spinner({
             value: parseInt(spinner.val, null),
@@ -24,11 +23,11 @@ jQuery(document).ready(function() {
             neg = true;
         }
 
-		jQuery("#" + spinner.id).numeric({
-			allowMinus: neg,
-			min: spinner.min,
-			max: spinner.max
-		});
+        jQuery(".spinner-input").numeric({
+            negative: neg,
+            min: spinner.min,
+            max: spinner.max
+        });
 
     });
 
@@ -39,42 +38,49 @@ jQuery(document).ready(function() {
 
     });
 
-    function cleanSpinnerValue(value, selector, spinner) {
+    // Update the slider from the input and vice versa
+    jQuery(".spinner-input").focus(function() {
 
-        if ( !selector.hasClass('spinnerInputChange') ) {
+        if (!jQuery(this).hasClass('spinnerInputChange')) {
             return;
-        }       
-        selector.removeClass('spinnerInputChange');
+        }
+        jQuery(this).removeClass('spinnerInputChange');
 
-        if (value === "" || value === null) {
-            value = spinner.min;
-        } else if (value >= parseInt(spinner.max)) {
+        var spinner = reduxSpinners[jQuery(this).attr('id')];
+        var value = jQuery(this).val();
+        if (value > spinner.max) {
             value = spinner.max;
-        } else if (value <= parseInt(spinner.min)) {
+        } else if (value < spinner.min) {
             value = spinner.min;
-        } else {
-            value = Math.round(value / spinner.step) * spinner.step;
         }
 
+        jQuery('#' + spinner.id + '-spinner').spinner("value", value);
         jQuery("#" + spinner.id).val(value);
 
-    }
-
-    // Update the spinner from the input and vice versa
-    jQuery(".spinner-input").blur(function() {
-//        cleanSpinnerValue(jQuery(this).val(), jQuery(this), redux.spinner[jQuery(this).attr('id')]);
-    });
-    jQuery(".spinner-input").focus(function() {
-        cleanSpinnerValue(jQuery(this).val(), jQuery(this), redux.spinner[jQuery(this).attr('id')]);
     });
 
     jQuery('.spinner-input').typeWatch({
-        callback:function(value){
-            cleanSpinnerValue(value, jQuery(this), redux.spinner[jQuery(this).attr('id')]);
+        callback: function(value) {
+
+            if (!jQuery(this).hasClass('spinnerInputChange')) {
+                return;
+            }
+            jQuery(this).removeClass('spinnerInputChange');
+
+            var spinner = reduxSpinners[jQuery(this).attr('id')];
+            if (value > spinner.max) {
+                value = spinner.max;
+            } else if (value < spinner.min) {
+                value = spinner.min;
+            }
+
+            jQuery('#' + spinner.id + '-spinner').spinner("value", value);
+            jQuery("#" + spinner.id).val(value);
+
         },
-        wait:500,
-        highlight:false,
-        captureLength:1
+        wait: 400,
+        highlight: false,
+        captureLength: 1
     });
 
 });

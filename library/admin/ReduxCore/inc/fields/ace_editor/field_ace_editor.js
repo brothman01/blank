@@ -4,7 +4,6 @@ jQuery(document).ready(function () {
 
   jQuery('.ace-editor').each(function(index, element){
       
-
       var area = element;
       var editor = jQuery(element).attr('data-editor');
       
@@ -14,7 +13,6 @@ jQuery(document).ready(function () {
       
       aceeditor.on('change', function(e){
           jQuery('#'+area.id).val(aceeditor.getSession().getValue());
-          redux_change(jQuery(element));
       });
       
   });

@@ -21,7 +21,7 @@ function redux_add_file(event, selector) {
 	frame = wp.media({
 		multiple: false,
 		library: {
-			//type: 'image' //Only allow images
+			type: 'image' //Only allow images
 		},
 		// Set the title of the modal.
 		title: jQueryel.data('choose'),
@@ -42,13 +42,7 @@ function redux_add_file(event, selector) {
 		// Grab the selected attachment.
 		var attachment = frame.state().get('selection').first();
 		frame.close();
-
-		if ( typeof redux.media[jQuery(selector).attr('data-id')] === 'undefined' ) {
-			redux.media[jQuery(selector).attr('data-id')] = {};
-			redux.media[jQuery(selector).attr('data-id')].mode = "image";
-		}
-
-		if ( redux.media[jQuery(selector).attr('data-id')].mode !== false && attachment.attributes.type !== redux.media[jQuery(selector).attr('data-id')].mode) {
+		if (attachment.attributes.type !== "image") {
 			return;
 		}
 
@@ -58,9 +52,9 @@ function redux_add_file(event, selector) {
 		selector.find('.upload-width').val(attachment.attributes.width);
 		redux_change( jQuery(selector).find( '.upload-id' ) );
 		var thumbSrc = attachment.attributes.url;
-		if (typeof attachment.attributes.sizes !== 'undefined' && typeof attachment.attributes.sizes.thumbnail !== 'undefined') {
+		if (typeof attachment.attributes.sizes.thumbnail !== 'undefined') {
 			thumbSrc = attachment.attributes.sizes.thumbnail.url;
-		} else if ( typeof attachment.attributes.sizes !== 'undefined' ) {
+		} else {
 			var height = attachment.attributes.height;
 			for (var key in attachment.attributes.sizes) {
 				var object = attachment.attributes.sizes[key];
@@ -69,11 +63,9 @@ function redux_add_file(event, selector) {
 					thumbSrc = object.url;
 				}
 			}
-		} else {
-			thumbSrc = attachment.attributes.icon;
 		}
 		selector.find('.upload-thumbnail').val(thumbSrc);
-		if ( !selector.find('.upload').hasClass('noPreview') ) {
+		if ( attachment.attributes.type === 'image' && !selector.find('.upload').hasClass('noPreview') ) {
 			selector.find('.screenshot').empty().hide().append('<img class="redux-option-image" src="' + thumbSrc + '">').slideDown('fast');
 		}
 		//selector.find('.media_upload_button').unbind();

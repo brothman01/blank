@@ -1,13 +1,6 @@
-/*
-	Field Border (border)
- */
-
-
 jQuery(document).ready(function() {
 	
-	jQuery(".redux-border-top, .redux-border-right, .redux-border-bottom, .redux-border-left, .redux-border-all").numeric({
-		allowMinus   : false,
-	});
+	jQuery(".redux-border-top, .redux-border-right, .redux-border-bottom, .redux-border-left, .redux-border-all").numeric();
 
 	jQuery(".redux-border-style").select2({
 		triggerChange: true,

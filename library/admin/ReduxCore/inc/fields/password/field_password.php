@@ -2,21 +2,18 @@
 /**
  * Class ReduxFramework_password
  */
-class ReduxFramework_password extends ReduxFramework {
+class ReduxFramework_password {
 
 	/**
 	 * Field Constructor.
 	 * Required - must call the parent constructor, then assign field and value to vars, and obviously call the render field function
 	 * @since ReduxFramework 1.0.1
 	 */
-    function __construct( $field = array(), $value ='', $parent ) {
-    
-		//parent::__construct( $parent->sections, $parent->args );
-		$this->parent = $parent;
+	function __construct( $field = array(), $value = '', $parent ) {
 		$this->field = $field;
 		$this->value = $value;
-    
-    }
+		$this->args  = $parent->args;
+	}
 
 	/**
 	 * Field Render Function.
@@ -73,10 +70,10 @@ class ReduxFramework_password extends ReduxFramework {
 		}
 
 		// Username field
-		echo '<input type="input" autocomplete="off" placeholder="' . $this->value['placeholder']['username'] . '" id="' . $this->field['id'] . '[username]" name="' . $this->parent->args['opt_name'] . '[' . $this->field['id'] . '][username]" value="' . esc_attr( $this->value['username'] ) . '" class="regular-text ' . $this->field['class'] . '" />&nbsp;';
+		echo '<input type="input" autocomplete="off" placeholder="' . $this->value['placeholder']['username'] . '" id="' . $this->field['id'] . '[username]" name="' . $this->args['opt_name'] . '[' . $this->field['id'] . '][username]" value="' . esc_attr( $this->value['username'] ) . '" class="regular-text ' . $this->field['class'] . '" />&nbsp;';
 
 		// Password field
-		echo '<input type="password" autocomplete="off" placeholder="' . $this->value['placeholder']['password'] . '" id="' . $this->field['id'] . '[password]" name="' . $this->parent->args['opt_name'] . '[' . $this->field['id'] . '][password]" value="' . esc_attr( $this->value['password'] ) . '" class="regular-text ' . $this->field['class'] . '" />';
+		echo '<input type="password" autocomplete="off" placeholder="' . $this->value['placeholder']['password'] . '" id="' . $this->field['id'] . '[password]" name="' . $this->args['opt_name'] . '[' . $this->field['id'] . '][password]" value="' . esc_attr( $this->value['password'] ) . '" class="regular-text ' . $this->field['class'] . '" />';
 
 	}
 
@@ -93,7 +90,7 @@ class ReduxFramework_password extends ReduxFramework {
 	 * </code>
 	 */
 	private function _render_single_field() {
-		echo '<input type="password" id="' . $this->field['id'] . '" name="' . $this->parent->args['opt_name'] . '[' . $this->field['id'] . ']" value="' . esc_attr( $this->value ) . '" class="regular-text ' . $this->field['class'] . '" />';
+		echo '<input type="password" id="' . $this->field['id'] . '" name="' . $this->args['opt_name'] . '[' . $this->field['id'] . ']" value="' . esc_attr( $this->value ) . '" class="regular-text ' . $this->field['class'] . '" />';
 	}
 
 }

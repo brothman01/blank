@@ -407,11 +407,11 @@ if ( !class_exists( "Redux_Framework_sample_config" ) ) {
 
 	            // TYPICAL -> Change these values as you need/desire
 				'opt_name'          	=> 'brew_options', // This is where your data is stored in the database and also becomes your global variable name.
-				'display_name'			=> 'BREW Options', // $theme->get('Name'), // Name that appears at the top of your panel
+				'display_name'			=> 'Theme Options', // $theme->get('Name'), // Name that appears at the top of your panel
 				'display_version'		=> '', //$theme->get('Version'), // Version that appears at the top of your panel
 				'menu_type'          	=> 'menu', //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
 				'allow_sub_menu'     	=> true, // Show the sections below the admin menu item or not
-				'menu_title'			=> __( 'BREW Options', 'brew-framework' ),
+				'menu_title'			=> __( 'Theme Options', 'brew-framework' ),
 	            'page'		 	 		=> __( 'Brew Options', 'brew-framework' ),
 	            'google_api_key'   	 	=> '', // Must be defined to add google fonts to the typography module
 	            'global_variable'    	=> '', // Set a different name for your global variable other than the opt_name

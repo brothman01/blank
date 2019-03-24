@@ -1,5 +1,5 @@
 <?php
-class ReduxFramework_sortable extends ReduxFramework {
+class ReduxFramework_sortable {
 
     /**
      * Field Constructor.
@@ -8,13 +8,10 @@ class ReduxFramework_sortable extends ReduxFramework {
      *
      * @since Redux_Options 2.0.1
     */
-    function __construct( $field = array(), $value ='', $parent ) {
-    
-        //parent::__construct( $parent->sections, $parent->args );
-        $this->parent = $parent;
+    function __construct($field = array(), $value ='', $parent) {
         $this->field = $field;
         $this->value = $value;
-    
+        $this->args = $parent->args;
     }
 
     /**
@@ -25,7 +22,6 @@ class ReduxFramework_sortable extends ReduxFramework {
      * @since Redux_Options 2.0.1
     */
     function render() {
-
 
         if ( empty( $this->field['mode'] ) ) {
             $this->field['mode'] = "text";
@@ -52,17 +48,17 @@ class ReduxFramework_sortable extends ReduxFramework {
             }
         }
 
+
         echo '<ul id="'.$this->field['id'].'-list" class="redux-sortable ' . $class . '">';
 
         foreach ($this->value as $k => $nicename) {
-            
+            $value_display = isset($this->value[$k]) ? $this->value[$k] : '';
             echo '<li>';
             
             $checked = "";
-            $name = $this->parent->args['opt_name'] . '[' . $this->field['id'] . '][' . $k . ']';
+            $name = $this->args['opt_name'] . '[' . $this->field['id'] . '][' . $k . ']';
 
             if ( $this->field['mode'] == "checkbox") {
-            	$value_display = $this->value[$k];
                 if (!empty($this->value[$k])) {
                     $checked = 'checked="checked" ';
                 }
@@ -70,9 +66,9 @@ class ReduxFramework_sortable extends ReduxFramework {
 
                 echo '<input type="hidden" name="'.$name.'" id="'.$this->field['id'].'-'.$k.'-hidden" value="'.$value_display.'" />';
                 $name = "";
+            }
+            if ( $this->field['mode'] == "checkbox") {
                 echo '<div class="checkbox-container">';
-            } else {
-            	$value_display = isset($this->value[$k]) ? $this->value[$k] : '';
             }
             echo '<input rel="'.$this->field['id'].'-'.$k.'-hidden" class="' . $class . '" '.$checked.'type="'.$this->field['mode'].'" id="' . $this->field['id'] . '[' . $k . ']" name="'.$name.'" value="' . esc_attr($value_display) . '" placeholder="' . $nicename . '" />';
 
@@ -95,20 +91,21 @@ class ReduxFramework_sortable extends ReduxFramework {
 
     function enqueue() {
 
+        wp_enqueue_script(
+            'redux-field-sortable-js',
+            ReduxFramework::$_url . 'inc/fields/sortable/field_sortable.min.js',
+            array('jquery'),
+            time(),
+            true
+        );
+
+
         wp_enqueue_style(
             'redux-field-sortable-css', 
             ReduxFramework::$_url.'inc/fields/sortable/field_sortable.css', 
             time(),
             true
         );  
-
-        wp_enqueue_script(
-            'redux-field-sortable-js', 
-            ReduxFramework::$_url . 'inc/fields/sortable/field_sortable.js', 
-            array('jquery'),
-            time(),
-            true
-        );        
 
     }
 }

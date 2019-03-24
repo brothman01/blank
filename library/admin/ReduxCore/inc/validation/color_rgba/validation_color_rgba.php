@@ -12,7 +12,7 @@ class Redux_Validation_color_rgba extends ReduxFramework {
 		
 		parent::__construct();
 		$this->field = $field;
-		$this->field['msg'] = (isset($this->field['msg']))?$this->field['msg']:__('This field must be a valid color value.', 'redux-framework');
+		$this->field['msg'] = (isset($this->field['msg']))?$this->field['msg']:__('This field must be a valid color value.', 'redux');
 		$this->value = $value;
 		$this->current = $current;
 		$this->validate();

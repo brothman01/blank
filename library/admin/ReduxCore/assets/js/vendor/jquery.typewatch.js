@@ -31,13 +31,11 @@
 			var value = jQuery(timer.el).val();
 
 			// Fire if text >= options.captureLength AND text != saved text OR if override AND text >= options.captureLength
-			if ((value.length >= options.captureLength && value.toUpperCase() != timer.text)
-				|| (override && value.length >= options.captureLength))
-			{
+			if ( ( value.length >= options.captureLength && value.toUpperCase() !== timer.text ) || ( override && value.length >= options.captureLength ) ) {
 				timer.text = value.toUpperCase();
 				timer.cb.call(timer.el, value);
 			}
-		};
+		}
 
 		function watchElement(elem) {
 			var elementType = elem.type.toUpperCase();
@@ -67,14 +65,14 @@
 					var evtElementType = this.type.toUpperCase();
 
 					// If enter key is pressed and not a TEXTAREA and matched inputTypes
-					if (typeof evt.keyCode != 'undefined' && evt.keyCode == 13 && evtElementType != 'TEXTAREA' && jQuery.inArray(evtElementType, options.inputTypes) >= 0) {
+					if (typeof evt.keyCode !== 'undefined' && evt.keyCode === 13 && evtElementType !== 'TEXTAREA' && jQuery.inArray(evtElementType, options.inputTypes) >= 0) {
 						timerWait = 1;
 						overrideBool = true;
 					}
 
 					var timerCallbackFx = function() {
-						checkElement(timer, overrideBool)
-					}
+						checkElement(timer, overrideBool);
+					};
 
 					// Clear timer					
 					clearTimeout(timer.timer);
@@ -83,7 +81,7 @@
 
 				jQuery(elem).on('keydown paste cut input', startWatch);
 			}
-		};
+		}
 
 		// Watch Each Element
 		return this.each(function() {

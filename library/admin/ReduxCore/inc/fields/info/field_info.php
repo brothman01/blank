@@ -42,10 +42,10 @@ if( !class_exists( 'ReduxFramework_info' ) ) {
          * @access      public
          * @return      void
          */
-        function __construct( $field = array(), $value ='', $parent ) {
+        public function __construct( $field = array(), $value ='', $parent ) {
         
-            //parent::__construct( $parent->sections, $parent->args );
-            $this->parent = $parent;
+            parent::__construct( $parent->sections, $parent->args );
+
             $this->field = $field;
             $this->value = $value;
         
@@ -61,12 +61,6 @@ if( !class_exists( 'ReduxFramework_info' ) ) {
          * @return      void
          */
         public function render() {
-
-            $defaults = array(
-                'title' => '',
-                'desc' => '',
-            );
-            $this->field = wp_parse_args( $this->field, $defaults );
 
         	if ( !isset( $this->field['style'] ) ) {
         		$this->field['style'] = "";
@@ -101,23 +95,21 @@ if( !class_exists( 'ReduxFramework_info' ) ) {
             	if ( !empty($this->field['raw_html']) && $this->field['raw_html'] ) {
             		echo $this->field['desc'];
             	} else {
-		            if( isset( $this->field['title'] ) && !empty( $this->field['title'] ) ) {
+		            if( !empty( $this->field['title'] ) ) {
 		                $this->field['title'] = '<b>' . $this->field['title'] . '</b><br/>';
+		            } else {
+		                $this->field['title'] = '';
 		            }
 
 		            if( isset( $this->field['icon'] ) && !empty( $this->field['icon'] ) && $this->field['icon'] !== true ) {
 		                echo '<p class="redux-info-icon"><i class="' . $this->field['icon'] . ' icon-large"></i></p>';
 		            }
-                    if (isset($this->field['raw']) && !empty($this->field['raw'])) {
-                        echo $this->field['raw'];    
-                    }
-                    if ( !empty( $this->field['title'] ) || !empty( $this->field['desc'] ) ) {
-                        echo '<p class="redux-info-desc">' . $this->field['title'] . $this->field['desc'] . '</p>';    
-                    }	            	
+
+	            	echo '<p class="redux-info-desc">' . $this->field['title'] . $this->field['desc'] . '</p>';
 
             	}
 
-            echo '</div><table class="form-table no-border" style="margin-top: 0;"><tbody><tr style="border-bottom:0;"><th style="padding-top:0;"></th><td style="padding-top:0;">';
+            echo '</div><table class="form-table no-border" style="margin-top: 0;"><tbody><tr><th></th><td>';
         
         }
 

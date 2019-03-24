@@ -42,14 +42,14 @@ if( !class_exists( 'ReduxFramework_divide' ) ) {
 		 * @access		public
 		 * @return		void
 		 */
-        function __construct( $field = array(), $value ='', $parent ) {
-        
-			//parent::__construct( $parent->sections, $parent->args );
-			$this->parent = $parent;
+		public function __construct( $field = array(), $value ='', $parent ) {
+		
+			parent::__construct( $parent->sections, $parent->args );
+
 			$this->field = $field;
 			$this->value = $value;
-        
-        }
+
+		}
 	
 		/**
 		 * Field Render Function.

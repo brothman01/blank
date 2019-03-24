@@ -17,7 +17,6 @@
  * @subpackage  Field_Editor
  * @author      Daniel J Griffiths (Ghost1227)
  * @author      Dovy Paukstys
- * @author      Kevin Provance (kprovance)
  * @version     3.0.0
  */
 
@@ -43,10 +42,10 @@ if( !class_exists( 'ReduxFramework_editor' ) ) {
          * @access      public
          * @return      void
          */
-        function __construct( $field = array(), $value ='', $parent ) {
+        public function __construct( $field = array(), $value ='', $parent ) {
         
-            //parent::__construct( $parent->sections, $parent->args );
-            $this->parent = $parent;
+            parent::__construct( $parent->sections, $parent->args );
+
             $this->field = $field;
             $this->value = $value;
         
@@ -62,23 +61,16 @@ if( !class_exists( 'ReduxFramework_editor' ) ) {
          * @return      void
          */
         public function render() {
-
-            // Setup up default editor_options
-            $defaults = array(
-                'textarea_name' => $this->parent->args['opt_name'] . '[' . $this->field['id'] . ']', 
+    	
+            $settings = array(
+                'textarea_name' => $this->args['opt_name'] . '[' . $this->field['id'] . ']', 
                 'editor_class'  => $this->field['class'],
-                'textarea_rows' => 10, //Wordpress default
+                'textarea_rows' => 8,
                 'teeny' => true,
             );
 
-            if ( !isset( $this->field['editor_options'] ) || empty( $this->field['editor_options'] ) ) {
-                $this->field['editor_options'] = array();
-            }
+            wp_editor( $this->value, $this->field['id'], $settings );
 
-            $this->field['editor_options'] = wp_parse_args( $this->field['editor_options'], $defaults );
-            
-            wp_editor( $this->value, $this->field['id'], $this->field['editor_options'] );
-            
         }
 
 
