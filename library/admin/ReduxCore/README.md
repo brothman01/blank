@@ -1,21 +1,72 @@
-# Redux Options Framework v3.0.0 Beta [![Build Status](https://secure.travis-ci.org/ghost1227/Redux-Framework.png?branch=master)](http://travis-ci.org/ghost1227/Redux-Framework)
+## Redux Options Framework [![WordPress plugin](https://img.shields.io/wordpress/plugin/v/redux-framework.svg?maxAge=3600)](https://wordpress.org/plugins/redux-framework) [![WordPress](https://img.shields.io/wordpress/v/redux-framework.svg?maxAge=3600)](https://wordpress.org/download/) [![Build Status](https://travis-ci.org/reduxframework/redux-framework.png?branch=master)](https://travis-ci.org/reduxframework/redux-framework) [![Slack](https://redux-slackin.herokuapp.com/badge.svg)](https://redux-slackin.herokuapp.com) 
 
-## Please help us beta test. As soon as the community verifies there are no bugs, we will release.
+[Get it in the WordPress plugin repo](https://wordpress.org/plugins/redux-framework/)
 
-Wordpress options framework which uses the [WordPress Settings API](http://codex.wordpress.org/Settings_API "WordPress Settings API"), Custom Error/Validation Handling, Custom Field/Validation Types, and import/export functionality.
+[Generate your own Underscores + Redux Framework based WordPress theme](http://build.reduxframework.com)
+
+[Join the Community in Slack](https://redux-slackin.herokuapp.com/)
+
+WordPress options framework which uses the [WordPress Settings API](http://codex.wordpress.org/Settings_API "WordPress Settings API"), Custom Error/Validation Handling, Custom Field/Validation Types, and import/export functionality.
+
+## REDUX v4 BETA NOW PUBLIC AND READY FOR TESTING!
+
+The public beta for Redux v4 is now available! You can find it here: https://github.com/reduxframework/redux-framework-4
+
+A couple of things.
+
+1. Please review carefully the READ ME text posted on the repository.  That information is very important and may answer many questions ahead of time.
+
+2. Please do NOT post issues about Redux v4 in THIS repo.  Please use the issue tracker via the link above.
+
+Have fun!
+
+## Posting Guidelines for issues and questions ##
+When using our Issue Tracker, you may ask questions where you may be a bit lost or need help understanding the documentation. If, however, you find a bug we require you to read and provide the information contained in our [Contributing Guidelines](https://github.com/ReduxFramework/redux-framework/blob/master/CONTRIBUTING.md). If you do not provide this information, we will request it before we can support you.
+
+If you are stuck in some of your own code, or need help with PHP and anything else not Redux specific, we request you purchase some [Premium Support](http://reduxframework.com/extension/premium-support/) and we will be happy to assist you. If we feel the issue is outside of our scope we will suggest you to purchase some [Premium Support](http://reduxframework.com/extension/premium-support/) in order for us to serve you.
+
+## Kickstart Your Development ##
+
+Are you authoring a theme, or plugin?  Visit the  [Redux Builder](http://build.reduxframework.com) site and get started!
+
+## Documentation ##
+
+Need a little help with Redux?  Come check out our brand new documentation site at  [docs.reduxframework.com](http://docs.reduxframework.com), chock full of tutorials and examples!
+
+
+## SMOF (Simple Modified Option Users) Converter! ##
+
+Hot off the press, our Redux Converter plugin. It takes your SMOF instance, and allows you to try out Redux without any fear. It also spits out valid PHP source for you if you want to migrate complete with data migration! Give it a try today. It will be in the WordPress.org repo shortly.  ;)
+https://github.com/ReduxFramework/redux-converter
+
+## Help Us Translate Redux ##
+
+Please head over to the wiki to learn how you can help us translate Redux quickly. Any and all are welcome. We appreciate your help!
+https://github.com/ReduxFramework/ReduxFramework/wiki/translate
+
+## Getting Started with Redux ##
+
+ReduxFramework has been built from the ground up to be the most flexible framework around. You can run it as an auto-updating plugin, or embed it inside your plugin or theme. It allows for multiple copies of itself within the same WordPress instance. For a guide on getting started please refer to [https://github.com/ReduxFramework/redux-framework/wiki/Getting-Started](https://github.com/ReduxFramework/redux-framework/wiki/Getting-Started).
+
+You can also [download our sample theme available here](https://github.com/ReduxFramework/ReduxSampleTheme) to start developing right away.
+
+## Please Post Reviews and Spread the Word ##
+
+ReduxFramework has just released to the WordPress Plugins directory. Please spread the word, tweet, and (most importantly) post reviews on http://wordpress.org/plugins/redux-framework/. 
+
 
 ## Donate to the Framework ##
 
 If you can, please donate to help support the ongoing development of Redux Framework!
 
-[![Donate to the framework](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif "Donate to the framework")](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N5AD7TSH8YA5U)
+[![Donate to the framework](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif "Donate to the framework")](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MMFMHWUPKHKPW)
 
 ## Features ##
 
 * Uses the [WordPress Settings API](http://codex.wordpress.org/Settings_API "WordPress Settings API")
 * Multiple built in field types
 * Multple layout field types
-* Fields can be over-ridden with a callback function, for custom field types
+* Fields can be overloaded with a callback function, for custom field types
 * Easily extendable by creating Field Classes
 * Built in Validation Classes
 * Easily extendable by creating Validation Classes
@@ -24,133 +75,75 @@ If you can, please donate to help support the ongoing development of Redux Frame
 * Multiple Hook Points for customisation
 * Import / Export Functionality - including cross site importing of settings
 * Easily add page help through the class
+* Fully responsive options panel
 * Much more
 
 ## Stay In The Loop! ##
-
-[![Follow us on Twitter](http://iod.unh.edu/Images/Twitter_follow_us.png "Follow us on Twitter")](https://www.twitter.com/ReduxFramework)
-
-## Getting Redux ##
-
-Redux can be downloaded in several ways which are outlined below. Please use whichever way you are most comfortable with.
-
-### Download as a .zip archive ###
-
-* Stable release: [download](https://github.com/ghost1227/Redux-Framework/archive/master.zip)
-
-Once you have downloaded the framework, upload the .zip file to the root of your project and unzip it as follows:
-
-```bash
-$ cd my-project
-$ unzip Redux-Framework-master.zip -d Redux-Framework
-```
-
-### Cloning the repository using git ###
-
-*Stable release*
-```bash
-$ cd my-project
-$ git clone git://github.com/ghost1227/Redux-Framework/
-```
-
-### Cloning the repository as a git submodule ###
-
-*Stable release*
-```bash
-$ cd my-project
-$ git submodule add git://github.com/ghost1227/Redux-Framework/
-```
-
-## Setting up Redux ##
-
-Copy the included options.php file outside of the Redux folder (recommended).
-
-Include Redux in your theme ```functions.php``` or plugin as follows:
-
-```php
-require_once('path/to/copied/options.php');
-```
-
-Edit ```options.php``` as needed.
+[![Follow us on Twitter](https://www.download82.com/images/produse/iconuri/twitter-for-android.png "Follow us on Twitter")](https://www.twitter.com/ReduxFramework)
+[![Like us on Facebook](https://addons.thunderbird.net/user-media/addon_icons/79/79494-64.png "Like us on Facebook")](https://www.facebook.com/ReduxFramework/)
 
 ## FAQs ##
 
 1. Why should we use ```require_once``` instead of ```get_template_part```?
  * First, because ```get_template_part``` is for... you guessed it, themes! Redux is designed to work with both themes *and* plugins.
  * Second, read [this](http://kovshenin.com/2013/get_template_part/).
-2. Why shouldn't we edit ```defaults.php```?
- * Because ```defaults.php``` is for *defaults*. Anything that is defined in ```defaults.php``` can be overridden in ```options.php```.
+2. Why shouldn't we edit ```sample-config.php``` in the plugin directory?
+ * Because ```sample-config.php``` will be replaced at each update of the plugin. You will lose all your effort
 
 ## Are you using Redux? ##
 
-Send me an email at ghost1227@reduxframework.com so I can add you to our user spotlight!
+Send us an email at info@reduxframework.com so we can add you to our showcase!
 
 ## Changelog ##
 
-### Master ###
+See [Changelog.md](https://github.com/ReduxFramework/redux-framework/blob/master/CHANGELOG.md)
 
-* Removed get() and show()
-* Fixed huge performance bug
-* More bugfixes
-* Fixed spacing field
+## Running PHP Unit tests ##
 
-### Version 3.0.0 Beta (September 12, 2013)
+The tests are built using [wordpress's make subversion repository](https://make.wordpress.org/core/handbook/automated-testing/)
 
-* Massive code overhaul
-* Replaced redundant field types with data elements
-* Migrated to company repo
-* Added several new storage methods
-* Numerous bugfixes
-* Renamed std argument to default
-* Added MP6 support
-* Complete CSS rewrite
-* Globals are now conditional
-* Added nesting support
-* Added repeatable field
-* Restyled Dev Mode
-* Added System Info tab
-* Added compiler hooks
-* Added style and icon support to info field
-* Switched to Elusive Icons
-* Huge performance updates
+`/var/www/wordpress-develop` as the destination for the core test files.
+First download the wordress core tests repository, for these files.
 
-### Version 2.0.1 Final (September 1, 2013) ###
+```bash
+cd /var/www
+svn co http://develop.svn.wordpress.org/trunk/ wordpress-develop
+```
 
-* Added option to override ```icon_type``` per icon
-* Minor bug/versioning fixes
-* Added Font Awesome intro
-* Added ```raw_html``` option
-* Added ```text_sortable``` option
-* Switched from Aristo to Bootstrap jQuery UI theme
+In the newly created `/var/www/wordpress-develop` directory rename
+`wp-tests-config-sample.php` to `wp-tests-config.php`. Now add your database
+details to the new file:
+```php
+// WARNING WARNING WARNING!
+// These tests will DROP ALL TABLES in the database with the prefix named below.
+// DO NOT use a production database or one that is shared with something else.
 
-### Version 2.0.0 (January 31, 2013) ###
+define( 'DB_NAME', 'wordpress-tests' );
+define( 'DB_USER', 'root' );
+define( 'DB_PASSWORD', 'passowrd' );
+define( 'DB_HOST', 'localhost' );
+define( 'DB_CHARSET', 'utf8' );
+define( 'DB_COLLATE', '' );
+```
+ - <b>n.b.</b> you may need to create the database first.
+ - <b>n.b. n.b.</b> also note that the database used will be emptied on each run.
 
-* Fixed SSL error which occurred occasionally with Google Webfonts 
-* Added optional flag for ```wpautop``` on editors
-* Added password field type
-* Added ```checkbox_hide_all``` option
-* Added WP3.5 media chooser
-* Added Google webfonts previews
-* Updated to WP3.5 color picker
-* Minor style tweaks
-* Added graphical 'switch' option for checkboxes
-* Removed dependency on class extension for fields
-* Deprecated icons in favor of iconfonts
+Set the `WP_TESTS_DIR` environment variable so that the `redux-framework` test bootstrap file can find the wordpress core tests:
+```bash
+export WP_TESTS_DIR='/var/www/wordpress-develop/tests/phpunit/includes/'
+```
 
-### Version 1.0.0 (December 5, 2012) ###
+You should now be able to run the `redux-framework` unit tests:
+```bash
+redux-framework$ phpunit
+Welcome to the TIVWP Test Suite
+Version: 1.0
 
-* Based on NHP Theme Options Framework v1.0.6
-* Cleaned up codebase
-* Changed option group name to allow multiple instances
-* Changed checkbox name attribute to id
-* Added rows attribute to textareas
-* Removed extra linebreak in upload field
-* Set default menu position to null to avoid conflicts
-* Added sample content for dashboard credit line
-* Minor style changes
-* Changed name of upload button
-* Refactored Google Webfonts function
-* Replaced ```stylesheet_override``` with ```admin_stylesheet```
-* Made text domain a constant
-* Removed PHP closing tags to prevent issues with newlines
-* Added option to define custom start tab
+Tests folder: /var/www/wordpress-develop/tests/phpunit/includes/
+
+Installing...
+...
+Configuration read from
+redux-framework/phpunit.xml
+...
+```
